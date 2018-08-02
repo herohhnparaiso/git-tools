@@ -1,9 +1,9 @@
-### About
+## About
 Tools to manage multiple repos at once.  You could get more configurability with [clustergit](https://github.com/mnagel/clustergit), but the dependencies are annoying, and what this is used for is simple enough.
 
-### Commands
+## Commands
 
-## Git Lever
+### Git Lever
 Runs a git command in all git repos down your system's directory tree starting from *root-dir*, which defaults to your current directory.
 
 **gitlev** *cmd*  *root_dir*
@@ -38,7 +38,7 @@ It also works to specify a relative directory:
 
 **client-services sf-dev$** `gitlev status ..`
 
-## Git Shift
+### Git Shift
 
 Changes branches on multiple repos down your system's directory tree starting from *root-dir*, which defaults to your current directory.  If the branch doesn't exist, the script will try to checkout develop, and then master if develop doesn't exist.
 

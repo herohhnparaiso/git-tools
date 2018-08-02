@@ -69,12 +69,15 @@ and have 1 and 4 different commits each, respectively.
 ### Installation
 
 **Clone this repo**
+
 `git clone https://github.com/herohhnparaiso/git-tools`
 
 **Make a bin folder if you don't have one**
+
 `mkdir ~/.bin`
 
 **Put repo contents into the bin folder, and cleanup**
+
 `cp -r git-tools/ ~/.bin/`
 
 `chmod +x ~/.bin/gitlev && chmod +x ~/.bin/gitshift`
@@ -82,6 +85,7 @@ and have 1 and 4 different commits each, respectively.
 `rm -r ~/.bin/.git && rm ~/.bin/.gitignore ~/.bin/README.md`
 
 **Add this line to your ~/.bash_profile if you just had to create the ~/.bin folder:**
+
 `export PATH="~/.bin:$PATH"`
 
 **Restart your terminal and enjoy!**

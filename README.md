@@ -1,5 +1,5 @@
 ## About
-Tools to manage multiple repos at once.  You could get more configurability with [clustergit](https://github.com/mnagel/clustergit), but the dependencies are annoying, and what this is used for is simple enough.
+Tools to manage multiple repos at once.  You could get more configurability with [clustergit](https://github.com/mnagel/clustergit), but the dependencies are annoying, and what this is used for is simple enough.  The only dependency is Ruby, and not sure if the version matters.
 
 ## Commands
 
@@ -67,3 +67,23 @@ and have 1 and 4 different commits each, respectively.
 ```
 
 ### Installation
+
+**Clone this repo**
+`git clone https://github.com/herohhnparaiso/git-tools`
+
+**Make a bin folder if you don't have one**
+`mkdir ~/.bin`
+
+**Put repo contents into the bin folder, and cleanup**
+`cp -r git-tools/ ~/.bin/`
+`chmod +x ~/.bin/gitlev && chmod +x ~/.bin/gitshift`
+`rm -r ~/.bin/.git && rm ~/.bin/.gitignore ~/.bin/README.md`
+
+**Add this line to your ~/.bash_profile if you just had to create the ~/.bin folder: **
+`export PATH="~/.bin:$PATH"`
+
+**Restart your terminal and enjoy!**
+
+
+
+

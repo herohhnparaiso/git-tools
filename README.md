@@ -5,9 +5,10 @@ Tools to manage multiple repos at once.
 
 ## Git Lever
 
-**gitlev** *command_name*  *root_dir*
+**gitlev** *cmd*  *root_dir*
+Runs a git command in all git repos down your system's directory tree starting from *root-dir*, which defaults to '.'.
 
-Runs a git command in all git repos down your system's directory tree starting from `*root-dir*`	
+If your command has any spaces, just wrap it in quotes. 
 
 **Example**
 

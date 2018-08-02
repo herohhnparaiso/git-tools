@@ -4,9 +4,9 @@ Tools to manage multiple repos at once.  You could get more configurability with
 ### Commands
 
 ## Git Lever
+Runs a git command in all git repos down your system's directory tree starting from *root-dir*, which defaults to your current directory.
 
 **gitlev** *cmd*  *root_dir*
-Runs a git command in all git repos down your system's directory tree starting from *root-dir*, which defaults to your current directory.
 
 If your command has any spaces, just wrap it in quotes.
 
@@ -14,7 +14,7 @@ If your command has any spaces, just wrap it in quotes.
 
 Assuming you have a directory called *CoreDev* with 3 repos in it: client-services, backoffice, and portal:
 
-`$ gitlev status ~/CoreDev`
+**$**`gitlev status ~/CoreDev`
 
 ```
 <<<OUTPUT 'portal: status'>>>
@@ -36,8 +36,34 @@ nothing to commit, working tree clean
 
 It also works to specify a relative directory:
 
-`client-services sf-dev$ gitlev status ..`
+**client-services sf-dev$** `gitlev status ..`
 
+## Git Shift
 
+Changes branches on multiple repos down your system's directory tree starting from *root-dir*, which defaults to your current directory.  If the branch doesn't exist, the script will try to checkout develop, and then master if develop doesn't exist.
+
+**gitshift** *branch_name*  *root_dir*
+
+**Example**
+
+Assuming you have a directory called *CoreDev* with 3 repos in it: client-services, backoffice, and portal:
+
+**$** `gitshift develop  ~/CoreDev`
+
+```
+Shift portal to develop
+Switched to branch 'develop'
+Result: Your branch is behind 'origin/develop' by 2 commits, and can be fast-forwarded.
+  (use "git pull" to update your local branch)
+Shift backoffice to develop
+Switched to branch 'develop'
+Result: Your branch is behind 'origin/develop' by 3 commits, and can be fast-forwarded.
+  (use "git pull" to update your local branch)
+Shift client-services to develop
+Switched to branch 'develop'
+Result: Your branch and 'origin/develop' have diverged,
+and have 1 and 4 different commits each, respectively.
+  (use "git pull" to merge the remote branch into yours)
+```
 
 ### Installation

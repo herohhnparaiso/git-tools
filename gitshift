@@ -1,0 +1,34 @@
+#!/usr/bin/ruby
+require_relative "git_directories_util.rb"
+
+BRANCH_NAMES = [ARGV[0]].concat([
+  "develop", 
+  "master"
+]).select{|bn| !bn.nil? && !bn.gsub(/\s/, "").empty? }
+
+
+def try_shift git_dir, branch_names
+  rep_name = git_dir.split("/").last
+  if branch_names.empty?
+    puts "Failed to shift #{rep_name}" 
+  end
+  b = branch_names.shift
+  puts "Shift #{rep_name} to #{b}"
+  cmd = "git checkout #{b}"
+  result = Dir.chdir git_dir do 
+    `#{cmd}`
+  end
+
+
+  if result.nil? || result.empty?
+    try_shift git_dir, branch_names
+  else
+    puts "Result: #{result}" 
+  end
+end
+
+
+path = ARGV[1]
+GitDir.list(path).each do |dir|
+  try_shift dir, BRANCH_NAMES.clone
+end

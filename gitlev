@@ -1,0 +1,33 @@
+#!/usr/bin/ruby
+require_relative "git_directories_util.rb"
+
+
+#TODO: use colorize to make each output a different color
+COLOR_ROTATIONS = []
+if ARGV.size == 0
+  puts "No git command entered"
+else 
+  dir_name = nil
+  git_cmd = ARGV.first.gsub(/git/, "")
+  cmd = "git " + git_cmd
+
+  path = ARGV[1]
+
+  git_directories = GitDir.list path
+
+  results = git_directories.map{|dir|
+    Dir.chdir dir do 
+
+      #consider this SO question to get more control over output/etc...
+      #https://stackoverflow.com/questions/6338908/ruby-difference-between-exec-system-and-x-or-backticks
+      %x[#{cmd}] #returns empty if process returns STDERR   
+    end
+  }
+
+  results.zip(git_directories).each do |r, dir|
+    puts "<<<OUTPUT '#{dir.split("/").last}: #{git_cmd}'>>>\n#{r}"
+  end
+
+end
+
+
